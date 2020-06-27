@@ -59,7 +59,7 @@ class TestTaskManager: XCTestCase {
         //remove task
         sut.checkTask(at:0)
               
-        XCTAssertEqual(sut.task(at: 0).title, "Bar")
+        XCTAssertEqual(sut.task(at: 0), task1)
 
     }
     
@@ -72,12 +72,25 @@ class TestTaskManager: XCTestCase {
         
         let donetask = sut.completeTask(at: 0)
         
-        XCTAssertEqual(donetask.title, "Foo")
+        XCTAssertEqual(donetask, task)
         
     }
     
     
+    func testMakeEmptyAllTask() {
+        sut.removeAll()
+        
+        XCTAssertTrue(sut.tasksCount == 0)
+        XCTAssertTrue(sut.doneTaskCount == 0)
+    }
     
+    func testWhenTaskExistNotAddIt() {
+        let task1 = Task(title: "Foo")
+        let task2 = Task(title: "Foo")
+        sut.add(task: task1)
+        sut.add(task: task2)
+        
+        XCTAssertTrue(sut.tasksCount == 1)
+    }
     
-
 }

@@ -21,7 +21,9 @@ class TaskManager {
     }
     
     func add(task : Task) {
-        inProgressTasks.append(task)
+        if !inProgressTasks.contains(task) {
+           inProgressTasks.append(task)
+        }
     }
     
     func task(at index : Int) -> Task {
@@ -37,6 +39,11 @@ class TaskManager {
         return completedTasks[index]
     }
     
+    
+    func removeAll(){
+        inProgressTasks.removeAll()
+        completedTasks.removeAll()
+    }
     
     
 }
