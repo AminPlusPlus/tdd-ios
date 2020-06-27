@@ -12,10 +12,8 @@ jobs:
     runs-on: macos-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: List available Xcode versions
-      run: ls /Applications | grep Xcode
-    - name: Select Xcode
-      run: sudo xcode-select -switch /Applications/Xcode_11.4.app && /usr/bin/xcodebuild -version
+    - uses: actions/checkout@v2
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild -project 'tdd.xcodeproj' -scheme 'tdd' -destination 'platform=iOS Simulator,name=iPhone 11' test
+    - name: Build App
+      run: xcodebuild -project 'tdd.xcodeproj' -scheme 'tdd' -destination 'generic/platform=iOS' -configuration Release build CODE_SIGNING_ALLOWED=NO
