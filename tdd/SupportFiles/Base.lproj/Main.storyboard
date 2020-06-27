@@ -19,16 +19,22 @@
                                 <rect key="frame" x="20" y="103" width="307" height="379"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="i91-Wv-fm6" id="Xqd-Er-NRL"/>
+                                    <outlet property="delegate" destination="i91-Wv-fm6" id="dHX-im-nic"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="dataProvider" destination="i91-Wv-fm6" id="4hB-mK-VwI"/>
                         <outlet property="tableView" destination="Kvx-XT-Rfp" id="Ogr-zr-tko"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <customObject id="i91-Wv-fm6" customClass="DataProvider" customModule="tdd" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="95.758928571428569"/>
         </scene>
