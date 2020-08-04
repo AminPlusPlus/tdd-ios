@@ -19,7 +19,7 @@ import XCTest
 class AuthViewControllerTest: XCTestCase {
     
     let app = XCUIApplication()
-  
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -37,10 +37,9 @@ class AuthViewControllerTest: XCTestCase {
     }
     
     func testEmptyUsernameAndPassword(){
-        
-        let app = XCUIApplication()
-        app.textFields["Username"].tap()
-        app.textFields["Password"].tap()
+    
+        usernameTextField().tap()
+        passwordTextField().tap()
         app/*@START_MENU_TOKEN@*/.staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
         XCTAssert(app.alerts["OOPS!"].exists, "Alert not exist")
@@ -48,33 +47,59 @@ class AuthViewControllerTest: XCTestCase {
     }
     
     func testEmptyUsername(){
-         let app = XCUIApplication()
+
+        passwordTextField().tap()
+        passwordTextField().typeText("12345678")
          
-        let userTextField = app.textFields["Password"]
-         userTextField.tap()
-         userTextField.typeText("12345678")
-         
-         app/*@START_MENU_TOKEN@*/.staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app/*@START_MENU_TOKEN@*/.staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
-        let passwordAlert = app.alerts["OOPS!"].scrollViews.otherElements.staticTexts["Missing username or is not correct"]
+        let passwordAlert = alertView().scrollViews.otherElements.staticTexts["Missing username or is not correct"]
          
         XCTAssert(passwordAlert.exists, "Alert not exist")
     }
     
     func testEmptyPassword(){
-         let app = XCUIApplication()
-         
-        let userTextField = app.textFields["Username"]
-         userTextField.tap()
-         userTextField.typeText("amin")
+
+         usernameTextField().tap()
+         usernameTextField().typeText("amin")
          
          app/*@START_MENU_TOKEN@*/.staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         
-        let passwordAlert = app.alerts["OOPS!"].scrollViews.otherElements.staticTexts["Missing password or is not correct"]
+        let passwordAlert = alertView().scrollViews.otherElements.staticTexts["Missing password or is not correct"]
          
         XCTAssert(passwordAlert.exists, "Alert not exist")
     }
     
     
+    func testSignInUsingUsernameAndPassword(){
+        usernameTextField().tap()
+        usernameTextField().typeText("amin")
+        passwordTextField().tap()
+        passwordTextField().typeText("12345")
+        app/*@START_MENU_TOKEN@*/.staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCTAssertFalse(alertView().exists,"Login Password is not correct")
+        
+    }
+    
 
 }
+
+extension AuthViewControllerTest {
+  
+    
+    //MARK:- UI Elements
+    func usernameTextField() -> XCUIElement {
+        return app.textFields["Username"]
+    }
+    
+    func passwordTextField() -> XCUIElement {
+        return app.textFields["Password"]
+    }
+    
+    func alertView() -> XCUIElement {
+        return app.alerts["OOPS!"]
+    }
+}
+
+
+

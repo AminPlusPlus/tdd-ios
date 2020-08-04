@@ -28,6 +28,7 @@ class AuthViewController: UIViewController {
             displayAlert(title: "OOPS!", message: "Missing username or is not correct")
             return
         }
+        
         guard let password = password.text, password == "12345" else {
             displayAlert(title: "OOPS!", message: "Missing password or is not correct")
             return
