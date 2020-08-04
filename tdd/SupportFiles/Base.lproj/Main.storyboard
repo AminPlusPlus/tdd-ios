@@ -21,7 +21,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Q9g-zJ-0fc">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZH3-80-gXv">
                                         <rect key="frame" x="0.0" y="54" width="394" height="34"/>
@@ -32,7 +32,7 @@
                                         <rect key="frame" x="0.0" y="108" width="394" height="30"/>
                                         <state key="normal" title="Sign In"/>
                                         <connections>
-                                            <segue destination="nbo-Gs-Zgf" kind="show" id="1tR-nk-OLK"/>
+                                            <action selector="signIn:" destination="Tiq-2l-amQ" eventType="touchUpInside" id="LAt-GM-vHw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -46,6 +46,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yWu-ir-Z9v"/>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="ZH3-80-gXv" id="OKD-9b-nJb"/>
+                        <outlet property="username" destination="Q9g-zJ-0fc" id="NSH-Un-Rcd"/>
+                        <segue destination="nbo-Gs-Zgf" kind="show" identifier="todoIdentifier" id="Krg-q3-TAm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLy-Ou-pbx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="Ya7-8g-MmQ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="80" id="Ya7-8g-MmQ">
                                 <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ya7-8g-MmQ" id="yBZ-BU-Rdh">
@@ -77,10 +82,13 @@
                     <navigationItem key="navigationItem" title="Title" id="uxS-hp-FRY">
                         <barButtonItem key="rightBarButtonItem" title="Add Note" id="fHk-hb-EpV">
                             <connections>
-                                <segue destination="lds-Tf-kgZ" kind="show" id="Ghr-wJ-0U2"/>
+                                <action selector="toAddNoteView:" destination="wRF-Oh-SBL" id="DJ8-rW-vPO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="lds-Tf-kgZ" kind="show" identifier="addnote" id="ti6-aL-sHJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zRH-2D-5HP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -93,10 +101,37 @@
                     <view key="view" contentMode="scaleToFill" id="IV4-5f-a1W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cZK-wH-Rlt">
+                                <rect key="frame" x="10" y="106" width="394" height="64"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Note Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tN7-jl-ntz">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdk-1c-jYp">
+                                        <rect key="frame" x="0.0" y="34" width="394" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="addNoteWithSender:" destination="lds-Tf-kgZ" eventType="touchUpInside" id="bhz-8x-wqe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cZK-wH-Rlt" firstAttribute="top" secondItem="7Mc-kZ-AMj" secondAttribute="top" constant="50" id="JEg-Kz-Vom"/>
+                            <constraint firstItem="cZK-wH-Rlt" firstAttribute="leading" secondItem="7Mc-kZ-AMj" secondAttribute="leading" constant="10" id="ZYU-TF-ZYD"/>
+                            <constraint firstItem="7Mc-kZ-AMj" firstAttribute="trailing" secondItem="cZK-wH-Rlt" secondAttribute="trailing" constant="10" id="sdO-QE-DyJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7Mc-kZ-AMj"/>
                     </view>
                     <navigationItem key="navigationItem" id="OjF-pS-bf4"/>
+                    <connections>
+                        <outlet property="titleTextField" destination="tN7-jl-ntz" id="J4v-ND-Mxw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="To2-YJ-mPY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
