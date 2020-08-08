@@ -14,7 +14,7 @@
 		0D0F22AA24D8DE2900DDCF66 /* NoteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F22A924D8DE2900DDCF66 /* NoteTest.swift */; };
 		0D0F22AE24D8E2E800DDCF66 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F22AD24D8E2E800DDCF66 /* ExtensionViewController.swift */; };
 		0D0F22B124D8E6E500DDCF66 /* TodoListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F22B024D8E6E500DDCF66 /* TodoListProtocol.swift */; };
-		0D0F22B324D8F96000DDCF66 /* AuthViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F22B224D8F96000DDCF66 /* AuthViewControllerTest.swift */; };
+		0D0F22B324D8F96000DDCF66 /* AuthViewControllerUITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0F22B224D8F96000DDCF66 /* AuthViewControllerUITest.swift */; };
 		0D97C6A624A5949B008F7B58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97C6A524A5949B008F7B58 /* AppDelegate.swift */; };
 		0D97C6A824A5949B008F7B58 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D97C6A724A5949B008F7B58 /* SceneDelegate.swift */; };
 		0D97C6AD24A5949B008F7B58 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D97C6AB24A5949B008F7B58 /* Main.storyboard */; };
@@ -49,7 +49,7 @@
 		0D0F22A924D8DE2900DDCF66 /* NoteTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTest.swift; sourceTree = "<group>"; };
 		0D0F22AD24D8E2E800DDCF66 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
 		0D0F22B024D8E6E500DDCF66 /* TodoListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListProtocol.swift; sourceTree = "<group>"; };
-		0D0F22B224D8F96000DDCF66 /* AuthViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewControllerTest.swift; sourceTree = "<group>"; };
+		0D0F22B224D8F96000DDCF66 /* AuthViewControllerUITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewControllerUITest.swift; sourceTree = "<group>"; };
 		0D97C6A224A5949B008F7B58 /* tdd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tdd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D97C6A524A5949B008F7B58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D97C6A724A5949B008F7B58 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +96,14 @@
 				0D0F22B024D8E6E500DDCF66 /* TodoListProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0D0F22B424DA1C5500DDCF66 /* Authenication */ = {
+			isa = PBXGroup;
+			children = (
+				0D0F22B224D8F96000DDCF66 /* AuthViewControllerUITest.swift */,
+			);
+			path = Authenication;
 			sourceTree = "<group>";
 		};
 		0D97C69924A5949A008F7B58 = {
@@ -146,9 +154,9 @@
 		0D97C6C624A594A0008F7B58 /* tddUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0D97C6C724A594A0008F7B58 /* tddUITests.swift */,
+				0D0F22B424DA1C5500DDCF66 /* Authenication */,
 				0D97C6C924A594A0008F7B58 /* Info.plist */,
-				0D0F22B224D8F96000DDCF66 /* AuthViewControllerTest.swift */,
+				0D97C6C724A594A0008F7B58 /* tddUITests.swift */,
 			);
 			path = tddUITests;
 			sourceTree = "<group>";
@@ -368,7 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D0F22B324D8F96000DDCF66 /* AuthViewControllerTest.swift in Sources */,
+				0D0F22B324D8F96000DDCF66 /* AuthViewControllerUITest.swift in Sources */,
 				0D97C6C824A594A0008F7B58 /* tddUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
