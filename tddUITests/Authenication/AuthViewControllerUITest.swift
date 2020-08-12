@@ -56,14 +56,7 @@ class AuthViewControllerUITest: XCTestCase {
     
     
     func testSignInUsingUsernameAndPassword(){
-//        usernameTextField().tap()
-//        usernameTextField().typeText("amin")
-//        passwordTextField().tap()
-//        passwordTextField().typeText("12345")
-//        app/*@START_MENU_TOKEN@*/.staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-//        XCTAssertFalse(alertView().exists,"Login Password is not correct")
-        
-        
+
         let app = XCUIApplication()
         app.textFields["Username"].tap()
         
@@ -102,7 +95,6 @@ class AuthViewControllerUITest: XCTestCase {
         
           app/*@START_MENU_TOKEN@*/.staticTexts["Sign In"]/*[[".buttons[\"Sign In\"].staticTexts[\"Sign In\"]",".staticTexts[\"Sign In\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
           XCTAssertFalse(alertView().exists,"Login Password is not correct")
-        
         
     }
     

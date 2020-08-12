@@ -1,0 +1,41 @@
+{
+  "configurations" : [
+    {
+      "id" : "6823D8B2-63D3-42C0-A5D0-662476EADED1",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "language" : "en",
+    "region" : "US",
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:tdd.xcodeproj",
+      "identifier" : "0D97C6A124A5949B008F7B58",
+      "name" : "tdd"
+    }
+  },
+  "testTargets" : [
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:tdd.xcodeproj",
+        "identifier" : "0D97C6B724A594A0008F7B58",
+        "name" : "tddTests"
+      }
+    },
+    {
+      "skippedTests" : [
+        "tddUITests"
+      ],
+      "target" : {
+        "containerPath" : "container:tdd.xcodeproj",
+        "identifier" : "0D97C6C224A594A0008F7B58",
+        "name" : "tddUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
